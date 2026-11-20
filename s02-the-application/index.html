@@ -1,226 +1,534 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>The Application · Idiocracy: Chesterfield County</title>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>The Application · Idiocratic Chesterfield County</title>
 <meta name="description" content="Project Hometown Cheraw, in twelve panels">
+<meta property="og:title" content="The Application · Idiocratic Chesterfield County">
+<meta property="og:description" content="Project Hometown Cheraw, in twelve panels">
+<meta property="og:image" content="https://sha-levi.github.io/idiocracy-cc/assets/s02/panel-01-og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#0e0f18">
 <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
 <style>
-/* collected.css — Idiocracy CC collected work. Lines up to the ADDITIONS marker are copied verbatim from
-   ~/Downloads/historical_extractions/_work/pres/extraction_base.css (Extraction With No End design system). */
-
 :root{
   color-scheme:dark;
-  --ground:#1a1c2c; --panel:#212437; --panel2:#282c42; --rule:#33374f; --rule2:#434862;
+  --ground:#1a1c2c; --deep:#0e0f18; --panel:#212437; --panel2:#282c42; --rule:#33374f; --rule2:#434862;
   --ink:#f1f2f6; --ink2:#bcc0d0; --mute:#8b90a6;
   --gold:#dcb33f; --gold-dim:#9a7d2c; --gold-bg:rgba(220,179,63,.09);
+  --frame:#3A2A1A;
   --serif:Charter,"Bitstream Charter","Sitka Text",Cambria,Georgia,serif;
   --sans:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
-  --mono:ui-monospace,"SFMono-Regular",Menlo,Consolas,"Liberation Mono",monospace;
+  --hud-top:56px; --hud-bot:62px; --side:76px;
 }
 *{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{margin:0;background:var(--ground);color:var(--ink);font:16.5px/1.62 var(--sans);-webkit-text-size-adjust:100%}
-.wrap{max-width:980px;margin:0 auto;padding:0 16px 72px}
+html,body{height:100%;margin:0;overflow:hidden;background:var(--deep);color:var(--ink);font:16px/1.55 var(--sans);-webkit-text-size-adjust:100%;overscroll-behavior:none}
 a{color:var(--gold)}
-a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
-h1,h2,h3{font-family:var(--serif);font-weight:700;color:var(--gold);margin:0;text-wrap:balance;line-height:1.15}
-h2{font-size:clamp(1.6rem,4.2vw,2.2rem)}
-h3{font-size:1.28rem}
-p{margin:0}
-p+p{margin-top:.8em}
-.num{font-variant-numeric:tabular-nums}
-.eyebrow{font:600 .78rem/1.2 var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--gold)}
-.src{margin-top:12px;font-size:.8rem;color:var(--mute);border-top:1px solid var(--rule);padding-top:8px}
-.src b{color:var(--ink2);font-weight:600}
-
-/* masthead */
-header.mast{padding:56px 0 34px;border-bottom:2px solid var(--gold);display:grid;gap:14px;text-align:center}
-header.mast h1{font-size:clamp(2.1rem,7.5vw,4rem);letter-spacing:.04em}
-header.mast .sub{font:italic 400 clamp(1.1rem,3vw,1.45rem)/1.35 var(--serif);color:var(--ink)}
-header.mast .when{color:var(--ink2);font-size:.98rem}
-header.mast .basis{color:var(--mute);font-size:.86rem;max-width:62ch;margin:4px auto 0}
-.figs{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:1px;background:var(--rule);border:1px solid var(--rule);margin-top:18px;text-align:left}
-.fig{background:var(--panel);padding:14px 14px 12px;display:grid;gap:4px;align-content:start}
-.fig b{font:700 1.75rem/1.05 var(--serif);color:var(--gold);font-variant-numeric:tabular-nums}
-.fig span{font-size:.84rem;color:var(--ink2);line-height:1.35}
-
-nav.toc{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin:22px 0 0;font-size:.86rem}
-nav.toc a{color:var(--ink2);text-decoration:none;border:1px solid var(--rule2);border-radius:999px;padding:4px 12px}
-nav.toc a:hover{color:var(--gold);border-color:var(--gold-dim)}
-
-section.part{padding-top:60px;display:grid;gap:22px;scroll-margin-top:12px}
-.part-head{display:grid;gap:8px;max-width:70ch}
-.part-head p{color:var(--ink2)}
-
-/* screenshots */
-figure.shot{margin:0 auto;max-width:800px;width:100%;display:grid;gap:8px}
-figure.shot img{display:block;width:100%;height:auto;border:1px solid var(--rule2);border-radius:6px}
-figure.shot figcaption{font-size:.82rem;color:var(--mute);line-height:1.45}
-figure.shot figcaption b{color:var(--ink2);font-weight:600}
-.shots{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px}
-
-/* their violations */
-.theirs{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
-.theirs div{border:2px solid var(--gold-dim);border-radius:12px;padding:14px 16px;background:var(--panel)}
-.theirs small{color:var(--gold);font-size:.82rem}
-.theirs h3{color:var(--ink);font-size:1.08rem;margin:4px 0 6px;font-family:var(--sans)}
-.theirs p{color:var(--ink2);font-size:.94rem}
-blockquote{margin:0;border-left:3px solid var(--gold);padding:10px 16px;background:var(--gold-bg);font:italic 1.08rem/1.5 var(--serif);color:var(--ink)}
-blockquote cite{display:block;font:normal .8rem var(--sans);color:var(--mute);margin-top:6px}
-
-/* finding cards */
-.cards{display:grid;gap:22px}
-article.card{background:var(--panel);border:1px solid var(--rule);border-radius:8px;padding:22px 22px 18px;display:grid;gap:12px;scroll-margin-top:12px}
-article.card header{display:grid;grid-template-columns:auto minmax(0,1fr);gap:4px 16px;align-items:baseline}
-article.card .no{font:700 2.2rem/1 var(--serif);color:var(--gold-dim);font-variant-numeric:tabular-nums;grid-row:span 2}
-article.card .kicker{font-size:.82rem;color:var(--mute)}
-article.card p{max-width:72ch}
-article.card .lead{font-size:1.05rem;color:var(--ink)}
-ul.facts{margin:0;padding-left:20px;display:grid;gap:6px;max-width:72ch}
-ul.facts li::marker{color:var(--gold)}
-.callout{border:1px solid var(--rule2);background:var(--panel2);border-radius:6px;padding:12px 14px;font-size:.95rem;color:var(--ink2)}
-.callout b{color:var(--ink)}
-
-/* tables */
-.tbl{overflow-x:auto;border:1px solid var(--rule);border-radius:6px;-webkit-overflow-scrolling:touch}
-table{border-collapse:collapse;width:100%;font-size:.92rem;font-variant-numeric:tabular-nums}
-th{font:600 .74rem/1.25 var(--sans);letter-spacing:.05em;text-transform:uppercase;color:var(--ink2);text-align:left;padding:10px 12px;background:var(--panel2);border-bottom:1px solid var(--rule2)}
-td{padding:9px 12px;border-bottom:1px solid var(--rule);vertical-align:top}
-tr:last-child td{border-bottom:0}
-td.n,th.n{text-align:right;white-space:nowrap}
-tr.tot td{background:var(--panel2);font-weight:700}
-tr.sub td{color:var(--ink2);font-size:.86rem}
-td.nm{font-weight:600;white-space:nowrap}
-.people td:first-child{white-space:nowrap;color:var(--ink2)}
-
-/* FOIA */
-.foia-note{display:grid;gap:6px;max-width:70ch}
-details.foia{background:var(--panel);border:1px solid var(--rule);border-radius:8px}
-details.foia+details.foia{margin-top:12px}
-details.foia summary{cursor:pointer;list-style:none;padding:16px 18px;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px 12px;align-items:center}
-details.foia summary::-webkit-details-marker{display:none}
-details.foia summary .t{font:700 1.1rem var(--serif);color:var(--gold)}
-details.foia summary .to{font-size:.86rem;color:var(--ink2);grid-column:1}
-details.foia summary .chev{grid-row:1/3;grid-column:2;color:var(--gold);font-size:1.3rem;transition:transform .15s}
-details.foia[open] summary .chev{transform:rotate(90deg)}
-.foia-body{padding:0 18px 18px;display:grid;gap:10px}
-.addr{font-size:.92rem;color:var(--ink2)}
-.addr b{color:var(--ink)}
-pre.letter{margin:0;white-space:pre-wrap;word-wrap:break-word;background:#15172a;border:1px solid var(--rule2);border-radius:6px;padding:14px 16px;font:.86rem/1.55 var(--mono);color:var(--ink);max-height:none}
-button.copy{justify-self:start;font:600 .86rem var(--sans);color:var(--ground);background:var(--gold);border:0;border-radius:6px;padding:8px 14px;cursor:pointer}
-button.copy:hover{filter:brightness(1.08)}
-
-/* questions */
-.questions{text-align:center;display:grid;gap:26px;max-width:720px;margin:0 auto}
-.questions .asks{font:italic 1.12rem/1.5 var(--serif);color:var(--ink2)}
-.questions ol{list-style:none;margin:0;padding:0;display:grid;gap:22px}
-.questions li{font:400 clamp(1.12rem,2.8vw,1.35rem)/1.45 var(--serif);color:var(--ink)}
-.questions .close{color:var(--ink2);font-size:.98rem}
-
-/* footer */
-footer{margin-top:72px;border-top:1px solid var(--rule2);padding-top:22px;display:grid;gap:22px;font-size:.86rem;color:var(--mute)}
-footer details summary{cursor:pointer;color:var(--ink2);font-weight:600}
-footer .srcs{margin-top:10px}
-footer .srcs td{font-size:.84rem}
-.sig{text-align:center;display:grid;gap:4px;padding:18px 0 8px;font-family:var(--serif)}
-.sig .a{letter-spacing:.14em;color:var(--gold);font-weight:700}
-.sig span{color:var(--ink2)}
-
-@media (max-width:560px){
-  body{font-size:16px}
-  header.mast{padding-top:36px}
-  article.card{padding:18px 16px 14px}
-  article.card header{grid-template-columns:1fr}
-  article.card .no{grid-row:auto;font-size:1.6rem}
-  th,td{padding:8px 9px}
-  .fig b{font-size:1.5rem}
-}
-
-/* narrow screens: tables become stacked label/value rows */
-.tbl{scrollbar-color:var(--rule2) var(--panel)}
-@media (max-width:600px){
-  table.stack thead{display:none}
-  table.stack tr{display:block;padding:10px 12px;border-bottom:1px solid var(--rule)}
-  table.stack tr:last-child{border-bottom:0}
-  table.stack tr.tot{background:var(--panel2)}
-  table.stack td{display:flex;justify-content:space-between;gap:14px;padding:2px 0;border:0;background:none;text-align:right}
-  table.stack td::before{content:attr(data-label);color:var(--mute);font-size:.82rem;font-weight:400;text-align:left}
-  table.stack td:first-child{display:block;text-align:left;padding-bottom:4px;font-weight:600;color:var(--ink)}
-  table.stack td:first-child::before{content:none}
-  table.stack td:empty{display:none}
-  table.stack.people td{display:block;text-align:left}
-  table.stack.people td::before{display:block}
-}
-@media print{
-  body{background:#fff;color:#000}
-  details.foia{break-inside:avoid}
-}
-@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
-
-/* ===== ADDITIONS (collected work) — tokens above unchanged ===== */
-.wrap.wide{max-width:1600px}
-header.mast .lede{color:var(--ink2);max-width:62ch;margin:0 auto}
-/* panel frame: matches the strip gutters */
-.frame{border:2px solid #3A2A1A;padding:8px;background:var(--panel2)}
-.frame img{display:block;width:100%;max-width:100%;height:auto}
-figure.panel{margin:0;display:grid;gap:10px}
-figure.panel .label{display:flex;flex-wrap:wrap;gap:4px 14px;align-items:baseline;font-size:.88rem;color:var(--ink2)}
-figure.panel .label b{font:700 1rem var(--serif);color:var(--gold);letter-spacing:.04em}
+button{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
 .vh{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0}
-section.act{padding-top:48px;display:grid;gap:30px}
-nav.toc.pager{justify-content:space-between;margin:20px 0}
-nav.toc.pager .home{display:flex;flex-wrap:wrap;gap:6px}
-/* chapter cards (landing) */
-.chapters{display:grid;gap:22px;margin-top:40px}
-article.card.chapter img{display:block;width:100%;max-width:100%;height:auto}
-article.card.chapter .read{justify-self:start;font:600 .92rem var(--sans);color:var(--ground);background:var(--gold);border-radius:6px;padding:8px 16px;text-decoration:none}
-.downloads{display:grid;gap:8px;margin-top:40px;color:var(--ink2);font-size:.94rem}
-footer .attribution{color:var(--ink2);max-width:72ch}
-/* seats at the table (panels whose spec carries designations) */
+
+/* ---------- stage ---------- */
+#stage{position:fixed;inset:0;overflow:hidden;touch-action:pan-y pinch-zoom;
+  background:radial-gradient(ellipse at 50% 45%,#1f2233 0%,#12131f 55%,#08090f 100%)}
+.slide{position:absolute;inset:0;display:none;transform-origin:0 0;will-change:transform,opacity;backface-visibility:hidden}
+.slide.on,.slide.moving{display:flex}
+.slide.panel{flex-direction:column;align-items:center;justify-content:center;
+  padding:var(--hud-top) var(--side) var(--hud-bot)}
+.fit{position:relative;flex:0 0 auto;border:2px solid var(--frame);background:var(--panel2);padding:6px;
+  box-shadow:0 18px 60px rgba(0,0,0,.55)}
+.fit img{display:block;width:100%;height:auto;user-select:none;-webkit-user-drag:none}
+.capm{display:none;max-width:40rem;margin:14px auto 0;padding:0 6px;font:400 1.02rem/1.5 var(--serif);color:var(--ink);text-align:left}
+.capm small{display:block;margin-top:8px;font:600 .72rem/1.2 var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--gold-dim)}
+body.portrait .capm{display:block}
+body.portrait .slide.panel{justify-content:flex-start;padding-top:calc(var(--hud-top) + 8px);overflow:hidden}
+
+/* act stamp */
+.stamp{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%) scale(.96);opacity:0;pointer-events:none;
+  background:rgba(14,15,24,.86);border:1px solid var(--gold-dim);border-top:3px solid var(--gold);
+  padding:18px 34px 20px;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,.6);transition:opacity .5s,transform .5s;z-index:2}
+.stamp.show{opacity:1;transform:translate(-50%,-50%) scale(1)}
+.stamp span{display:block;font:600 .78rem/1.2 var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}
+.stamp b{display:block;margin-top:6px;font:700 clamp(1.6rem,4.4vw,2.6rem)/1.1 var(--serif);color:var(--ink);white-space:nowrap}
+
+/* title + end cards */
+.slide.card{align-items:center;justify-content:center;padding:var(--hud-top) 20px var(--hud-bot);text-align:center}
+.card-in{display:grid;gap:14px;justify-items:center;max-width:820px}
+.eyebrow{font:600 .78rem/1.2 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
+.card h1{margin:0;font:700 clamp(2.4rem,8vw,4.6rem)/1.02 var(--serif);color:var(--gold);letter-spacing:.03em}
+.card .sub{margin:0;font:italic 400 clamp(1.1rem,3vw,1.45rem)/1.35 var(--serif);color:var(--ink)}
+.card .lede{margin:0;color:var(--ink2);max-width:58ch}
+.thumb{display:block;width:min(340px,62vw);border:2px solid var(--frame);background:var(--panel2);padding:4px;margin:8px 0 4px;cursor:pointer;
+  box-shadow:0 0 0 1px rgba(220,179,63,.25),0 18px 50px rgba(0,0,0,.6);transition:box-shadow .3s}
+.thumb:hover{box-shadow:0 0 0 2px var(--gold),0 18px 50px rgba(0,0,0,.6)}
+.thumb img{display:block;width:100%;height:auto}
+.btn{display:inline-flex;align-items:center;gap:8px;font:600 .95rem var(--sans);color:var(--deep);background:var(--gold);border:0;border-radius:6px;padding:10px 20px;text-decoration:none;cursor:pointer}
+.btn.ghost{background:transparent;color:var(--ink2);border:1px solid var(--rule2)}
+.btn.ghost:hover{color:var(--gold);border-color:var(--gold-dim)}
+.btns{display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
+.hint{font-size:.82rem;color:var(--mute)}
+.hint kbd{font:600 .74rem var(--sans);border:1px solid var(--rule2);border-bottom-width:2px;border-radius:4px;padding:1px 6px;color:var(--ink2)}
+.attr{font-size:.8rem;color:var(--mute);max-width:64ch;margin:10px auto 0}
+.attr i{color:var(--ink2)}
+
+/* ---------- HUD ---------- */
+.hud{position:fixed;left:0;right:0;z-index:10;transition:opacity .4s;pointer-events:none}
+.hud>*{pointer-events:auto}
+body.idle .hud,body.idle .arrow{opacity:0}
+body.idle{cursor:none}
+.hud.top{top:0;height:var(--hud-top);display:flex;align-items:center;gap:12px;padding:0 14px;
+  background:linear-gradient(rgba(8,9,15,.85),rgba(8,9,15,0))}
+.where{min-width:0;display:flex;align-items:baseline;gap:10px;white-space:nowrap;overflow:hidden}
+.where a{font:700 1rem var(--serif);color:var(--gold);text-decoration:none;letter-spacing:.03em}
+.where span{font:600 .72rem var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--ink2);overflow:hidden;text-overflow:ellipsis}
+.tools{margin-left:auto;display:flex;gap:4px}
+.ic{width:40px;height:40px;display:grid;place-items:center;border:1px solid transparent;border-radius:8px;background:rgba(14,15,24,.55);cursor:pointer;color:var(--ink2)}
+.ic:hover{color:var(--gold);border-color:var(--rule2)}
+.ic[aria-pressed="true"]{color:var(--gold);border-color:var(--gold-dim)}
+.ic svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+
+.hud.bot{bottom:0;height:var(--hud-bot);display:flex;align-items:center;gap:14px;padding:0 14px;
+  background:linear-gradient(rgba(8,9,15,0),rgba(8,9,15,.88))}
+.count{font:700 .95rem var(--serif);color:var(--gold);white-space:nowrap;font-variant-numeric:tabular-nums;min-width:4.6em}
+.count small{color:var(--mute);font-weight:400}
+.ptitle{font:600 .74rem var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0;flex:0 1 auto;max-width:28ch}
+.track{flex:1;display:flex;gap:3px;align-items:center;height:28px;min-width:120px}
+.track button{flex:1;height:100%;border:0;background:none;padding:0;cursor:pointer;display:flex;align-items:center}
+.track button i{display:block;width:100%;height:4px;border-radius:2px;background:var(--rule2);position:relative;overflow:hidden;transition:height .15s}
+.track button:hover i{height:7px}
+.track button.done i{background:var(--gold-dim)}
+.track button.cur i{background:var(--rule2)}
+.track button.cur i::after{content:"";position:absolute;inset:0;width:var(--fill,100%);background:var(--gold)}
+.track .gap{width:10px;flex:0 0 10px}
+
+.arrow{position:fixed;top:50%;transform:translateY(-50%);z-index:9;width:56px;height:96px;border:0;background:none;cursor:pointer;display:grid;place-items:center;color:var(--ink2);transition:opacity .4s,color .2s}
+.arrow:hover{color:var(--gold)}
+.arrow svg{width:30px;height:30px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;filter:drop-shadow(0 2px 6px rgba(0,0,0,.8))}
+.arrow.prev{left:8px}.arrow.next{right:8px}
+.arrow[disabled]{opacity:0;pointer-events:none}
+
+/* ---------- overlays ---------- */
+.overlay{position:fixed;inset:0;z-index:20;background:rgba(8,9,15,.94);display:none;overflow:auto;padding:70px 18px 40px}
+.overlay.open{display:block;animation:fadein .25s}
+@keyframes fadein{from{opacity:0}to{opacity:1}}
+.overlay .close{position:fixed;top:10px;right:12px}
+.grid-in{max-width:1280px;margin:0 auto;display:grid;gap:30px}
+.grid-act h2{margin:0 0 12px;font:700 1.4rem var(--serif);color:var(--gold)}
+.grid-act .eyebrow{display:block;margin-bottom:4px}
+.tiles{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:14px}
+.tile{border:2px solid var(--frame);background:var(--panel2);padding:4px;cursor:pointer;text-align:left;display:grid;gap:6px}
+.tile:hover,.tile.cur{border-color:var(--gold)}
+.tile img{display:block;width:100%;aspect-ratio:1536/1000;object-fit:cover;object-position:top}
+.tile span{font:600 .72rem var(--sans);letter-spacing:.1em;text-transform:uppercase;color:var(--ink2);padding:0 4px 4px}
+.tile span b{color:var(--gold);margin-right:6px}
+.grid-foot{display:flex;flex-wrap:wrap;gap:10px 22px;font-size:.9rem;color:var(--ink2)}
+
+.drawer{position:fixed;top:0;right:0;bottom:0;width:min(440px,100vw);z-index:21;background:var(--panel);border-left:1px solid var(--rule2);
+  transform:translateX(102%);transition:transform .3s cubic-bezier(.2,.8,.2,1);overflow:auto;padding:64px 22px 30px;display:grid;gap:16px;align-content:start}
+.drawer.open{transform:none;box-shadow:-20px 0 60px rgba(0,0,0,.5)}
+.drawer .close{position:absolute;top:10px;right:12px}
+.drawer h2{margin:0;font:700 1.5rem var(--serif);color:var(--gold)}
+.drawer .cap{margin:0;font:400 1.05rem/1.55 var(--serif);color:var(--ink);border-left:3px solid var(--gold);padding:4px 0 4px 14px;background:var(--gold-bg)}
+.drawer .meta{font-size:.86rem;color:var(--ink2);display:grid;gap:4px}
+.drawer .meta b{color:var(--ink)}
+.drawer .links{display:flex;flex-wrap:wrap;gap:8px}
 .seats h3{font:700 1rem var(--serif);color:var(--gold);margin:4px 0 6px}
 .seats ul{list-style:none;margin:0;padding:0;display:grid;gap:12px}
 .seats li b{display:block;font:600 .9rem var(--sans);color:var(--ink)}
-.seats li span{display:block;font-size:.88rem;color:var(--ink2);overflow-wrap:anywhere}
-footer .also{font-size:.84rem}
-@media (max-width:560px){
-  nav.toc.pager{flex-direction:column;align-items:stretch}
-  nav.toc.pager a{text-align:center}
-  nav.toc.pager .home{justify-content:center}
-  .frame{padding:4px}
+.seats li span{display:block;font-size:.86rem;color:var(--ink2);overflow-wrap:anywhere}
+
+/* ---------- responsive ---------- */
+@media (max-width:760px){
+  :root{--side:8px;--hud-top:52px;--hud-bot:58px}
+  .arrow{display:none}
+  .ptitle{display:none}
+  .where span{display:none}
+  .fit{padding:3px}
 }
+@media (max-height:520px) and (orientation:landscape){
+  :root{--hud-top:44px;--hud-bot:46px}
+  .ic{width:34px;height:34px}
+}
+@media (prefers-reduced-motion:reduce){.stamp,.drawer{transition:none}}
 </style>
 </head>
-<body><div class="wrap wide">
-<header class="mast">
-<span class="eyebrow">CHAPTER 1 · 12 PANELS</span>
-<h1>The Application</h1>
-<p class="sub">Project Hometown Cheraw, in twelve panels</p>
-<nav class="toc" aria-label="Site"><a href="../index.html">All chapters</a><a href="panel-01.html">Start reading</a></nav>
+<body>
+<div id="stage" role="region" aria-roledescription="slideshow" aria-label="The Application — 12 panels">
+  <section class="slide card" id="s0" data-k="title" aria-label="Title">
+    <div class="card-in">
+      <span class="eyebrow">Idiocratic Chesterfield County · Chapter 1</span>
+      <h1>The Application</h1>
+      <p class="sub">Project Hometown Cheraw, in twelve panels</p>
+      <button class="thumb" id="portal0" aria-label="Begin with Panel 1: The Postcard"><img alt="" decoding="async"></button>
+      <div class="btns"><button class="btn" data-go="next">Begin&nbsp;→</button></div>
+      <p class="hint"><kbd>←</kbd> <kbd>→</kbd> or swipe to move · <kbd>G</kbd> all panels · <kbd>I</kbd> panel notes · <kbd>P</kbd> autoplay · <kbd>F</kbd> full screen</p>
+      <p class="attr"><i>Idiocracy</i> and Brawndo are the property of 20th Century Studios. This work is an unaffiliated satirical reference. Chesterfield County is real; the drink is not.</p>
+    </div>
+  </section>
+  <!-- panel slides are generated from the data block below -->
+  <section class="slide card" id="sEnd" data-k="end" aria-label="End of chapter">
+    <div class="card-in">
+      <span class="eyebrow">End of Chapter 1 · 12 panels</span>
+      <h1>The Application</h1>
+      <p class="sub">Project Hometown Cheraw, in twelve panels</p>
+      <div class="btns">
+        <button class="btn" data-go="first">Read again from the start</button>
+        <button class="btn ghost" data-go="grid">All panels</button>
+        <a class="btn ghost" href="../assets/s02/strip.png" download>Download the full strip (PNG, 11 MB)</a>
+      </div>
+      <div class="btns">
+        <a class="btn ghost" href="../index.html">All chapters</a>
+        <a class="btn ghost" href="https://sha-levi.github.io/">Also by the author →</a>
+      </div>
+      <p class="attr"><i>Idiocracy</i> and Brawndo are the property of 20th Century Studios. This work is an unaffiliated satirical reference. Chesterfield County is real; the drink is not.</p>
+    </div>
+  </section>
+</div>
+
+<header class="hud top">
+  <div class="where"><a href="../index.html">Idiocratic Chesterfield County</a><span id="whereAct">Chapter 1 · The Application</span></div>
+  <div class="tools">
+    <button class="ic" id="bPlay" aria-pressed="false" title="Autoplay (P)" aria-label="Autoplay"><svg viewBox="0 0 24 24"><path id="playIcon" d="M7 5l12 7-12 7z"/></svg></button>
+    <button class="ic" id="bInfo" title="Panel notes (I)" aria-label="Panel notes"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7.5v.5"/></svg></button>
+    <button class="ic" id="bGrid" title="All panels (G)" aria-label="All panels"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="6.5" height="6.5"/><rect x="13.5" y="4" width="6.5" height="6.5"/><rect x="4" y="13.5" width="6.5" height="6.5"/><rect x="13.5" y="13.5" width="6.5" height="6.5"/></svg></button>
+    <button class="ic" id="bFull" title="Full screen (F)" aria-label="Full screen"><svg viewBox="0 0 24 24"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg></button>
+  </div>
 </header>
-<main>
-<section class="act" id="act-1"><div class="part-head"><span class="eyebrow">Act 1</span><h2>The Advertisement</h2></div>
-<figure class="panel"><a class="frame" href="panel-01.html"><img src="../assets/s02/panel-01.webp" width="1536" height="1144" alt="Panel 01: The Postcard" loading="eager"></a><figcaption class="label"><b>THE POSTCARD</b><span>Panel 1 of 12</span><a href="panel-01.html">Open panel 01</a></figcaption></figure>
-<figure class="panel"><a class="frame" href="panel-02.html"><img src="../assets/s02/panel-02.webp" width="1536" height="1164" alt="Panel 02: The Groundbreaking" loading="lazy"></a><figcaption class="label"><b>THE GROUNDBREAKING</b><span>Panel 2 of 12</span><a href="panel-02.html">Open panel 02</a></figcaption></figure>
-<figure class="panel"><a class="frame" href="panel-03.html"><img src="../assets/s02/panel-03.webp" width="1536" height="1164" alt="Panel 03: The Mentor" loading="lazy"></a><figcaption class="label"><b>THE MENTOR</b><span>Panel 3 of 12</span><a href="panel-03.html">Open panel 03</a></figcaption></figure>
-<figure class="panel"><a class="frame" href="panel-04.html"><img src="../assets/s02/panel-04.webp" width="1536" height="1206" alt="Panel 04: The Results" loading="lazy"></a><figcaption class="label"><b>THE RESULTS</b><span>Panel 4 of 12</span><a href="panel-04.html">Open panel 04</a></figcaption></figure>
-</section>
-<section class="act" id="act-2"><div class="part-head"><span class="eyebrow">Act 2</span><h2>Ground Level</h2></div>
-<figure class="panel"><a class="frame" href="panel-05.html"><img src="../assets/s02/panel-05.webp" width="1536" height="1216" alt="Panel 05: The Ledger" loading="lazy"></a><figcaption class="label"><b>THE LEDGER</b><span>Panel 5 of 12</span><a href="panel-05.html">Open panel 05</a></figcaption></figure>
-<figure class="panel"><a class="frame" href="panel-06.html"><img src="../assets/s02/panel-06.webp" width="1536" height="1144" alt="Panel 06: The Billboard" loading="lazy"></a><figcaption class="label"><b>THE BILLBOARD</b><span>Panel 6 of 12</span><a href="panel-06.html">Open panel 06</a></figcaption></figure>
-<figure class="panel"><a class="frame" href="panel-07.html"><img src="../assets/s02/panel-07.webp" width="1536" height="1192" alt="Panel 07: The Cell" loading="lazy"></a><figcaption class="label"><b>THE CELL</b><span>Panel 7 of 12</span><a href="panel-07.html">Open panel 07</a></figcaption></figure>
-</section>
-<section class="act" id="act-3"><div class="part-head"><span class="eyebrow">Act 3</span><h2>The Operations</h2></div>
-<figure class="panel"><a class="frame" href="panel-08.html"><img src="../assets/s02/panel-08.webp" width="1536" height="1208" alt="Panel 08: The Hat Table" loading="lazy"></a><figcaption class="label"><b>THE HAT TABLE</b><span>Panel 8 of 12</span><a href="panel-08.html">Open panel 08</a></figcaption></figure>
-<figure class="panel"><a class="frame" href="panel-09.html"><img src="../assets/s02/panel-09.webp" width="1536" height="1240" alt="Panel 09: The Surname" loading="lazy"></a><figcaption class="label"><b>THE SURNAME</b><span>Panel 9 of 12</span><a href="panel-09.html">Open panel 09</a></figcaption></figure>
-<figure class="panel"><a class="frame" href="panel-10.html"><img src="../assets/s02/panel-10.webp" width="1536" height="1201" alt="Panel 10: The Handoff" loading="lazy"></a><figcaption class="label"><b>THE HANDOFF</b><span>Panel 10 of 12</span><a href="panel-10.html">Open panel 10</a></figcaption></figure>
-<figure class="panel"><a class="frame" href="panel-11.html"><img src="../assets/s02/panel-11.webp" width="1536" height="1236" alt="Panel 11: The Hallway" loading="lazy"></a><figcaption class="label"><b>THE HALLWAY</b><span>Panel 11 of 12</span><a href="panel-11.html">Open panel 11</a></figcaption></figure>
-<figure class="panel"><a class="frame" href="panel-12.html"><img src="../assets/s02/panel-12.webp" width="1536" height="1312" alt="Panel 12: The Application" loading="lazy"></a><figcaption class="label"><b>THE APPLICATION</b><span>Panel 12 of 12</span><a href="panel-12.html">Open panel 12</a></figcaption></figure>
-</section>
-<section class="downloads" aria-label="Downloads">
-<p><a href="../assets/s02/strip.png" download>Download the full strip (PNG, 11 MB)</a></p>
-<p>Each panel’s page has a download link for that panel.</p>
-</section>
-</main>
-<footer>
-<p class="attribution"><i>Idiocracy</i> and Brawndo are the property of 20th Century Studios. This work is an unaffiliated satirical reference. Chesterfield County is real; the drink is not.</p>
-</footer>
-</div></body></html>
+<button class="arrow prev" id="aPrev" aria-label="Previous"><svg viewBox="0 0 24 24"><path d="M15 4l-8 8 8 8"/></svg></button>
+<button class="arrow next" id="aNext" aria-label="Next"><svg viewBox="0 0 24 24"><path d="M9 4l8 8-8 8"/></svg></button>
+<nav class="hud bot" aria-label="Panels">
+  <div class="count" id="count">—</div>
+  <div class="track" id="track"></div>
+  <div class="ptitle" id="ptitle"></div>
+</nav>
+
+<div class="overlay" id="grid" role="dialog" aria-modal="true" aria-label="All panels">
+  <button class="ic close" data-close aria-label="Close"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+  <div class="grid-in" id="gridIn"></div>
+</div>
+<aside class="drawer" id="info" aria-label="Panel notes" aria-hidden="true">
+  <button class="ic close" data-close aria-label="Close"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+  <div id="infoIn"></div>
+</aside>
+<div class="vh" aria-live="polite" id="live"></div>
+
+<script type="application/json" id="data">{"base": "../assets/s02/", "pages": "", "chapters": "../index.html", "strip": "../assets/s02/strip.png", "attribution": "<i>Idiocracy<\/i> and Brawndo are the property of 20th Century Studios. This work is an unaffiliated satirical reference. Chesterfield County is real; the drink is not.", "panels": [{"n": 1, "title": "The Postcard", "act": 1, "actTitle": "The Advertisement", "w": 1536, "h": 1144, "caption": "This is Cheraw, South Carolina. Population seven thousand. The brochure says everything you need to hear.", "seats": null, "rendered": "2026-11-07", "file": "panel-01.webp", "png": "panel-01.png", "portal": [0.83, 0.64], "portalObject": "Welcome to Cheraw sign"}, {"n": 2, "title": "The Groundbreaking", "act": 1, "actTitle": "The Advertisement", "w": 1536, "h": 1164, "caption": "The community leader who saved rural healthcare. Sixty million dollars. A new hospital where no one else would build one. The board voted unanimously. She was the first vote.", "seats": null, "rendered": "2026-11-07", "file": "panel-02.webp", "png": "panel-02.png", "portal": [0.8, 0.27], "portalObject": "hospital rendering on the billboard"}, {"n": 3, "title": "The Mentor", "act": 1, "actTitle": "The Advertisement", "w": 1536, "h": 1164, "caption": "The officer who put a mentor in every school in the county. He grew up here. He could have left. He stayed. The brochure says he chose Cheraw. Cheraw says it chose him back.", "seats": null, "rendered": "2026-11-07", "file": "panel-03.webp", "png": "panel-03.png", "portal": [0.49, 0.24], "portalObject": "the open locker"}, {"n": 4, "title": "The Results", "act": 1, "actTitle": "The Advertisement", "w": 1536, "h": 1206, "caption": "November third, twenty twenty-six. The voters decided. New sheriff. New school board member. New tax. The system works. The brochure says so.", "seats": null, "rendered": "2026-11-07", "file": "panel-04.webp", "png": "panel-04.png", "portal": [0.5, 0.22], "portalObject": "the results board"}, {"n": 5, "title": "The Ledger", "act": 2, "actTitle": "Ground Level", "w": 1536, "h": 1216, "caption": "The brochure says Big Life. The ledger says the county cannot account for fifteen point seven million dollars in its tax account. The finding is a repeat. The Treasurer hand-writes the checks. The county spends more on marketing than on veterinary care for four thousand animals. The budget is not hidden. The budget is the budget.", "seats": null, "rendered": "2026-11-07", "file": "panel-05.webp", "png": "panel-05.png", "portal": [0.7, 0.35], "portalObject": "the finance monitor"}, {"n": 6, "title": "The Billboard", "act": 2, "actTitle": "Ground Level", "w": 1536, "h": 1144, "caption": "The voters decided. All forty of them. Seven of eleven seats — nobody else filed. The board chair won with fewer votes than a Friday night football game draws. The billboards line the road. Nobody drives past them. Nobody reads them. That is the point.", "seats": null, "rendered": "2026-11-07", "file": "panel-06.webp", "png": "panel-06.png", "portal": [0.81, 0.49], "portalObject": "the end of the road"}, {"n": 7, "title": "The Cell", "act": 2, "actTitle": "Ground Level", "w": 1536, "h": 1192, "caption": "One hundred and two days after a man died of thirst in this building, the voters approved fifty million dollars for a bigger building. The cause of death was dehydration. The manner was homicide. Seven officers were fired. The facility asked for an upgrade. Seventy-two percent said yes.", "seats": null, "rendered": "2026-11-07", "file": "panel-07.webp", "png": "panel-07.png", "portal": [0.625, 0.24], "portalObject": "the cell door window"}, {"n": 8, "title": "The Hat Table", "act": 3, "actTitle": "The Operations", "w": 1536, "h": 1208, "caption": "Every seat in the room wears more than one hat. The council chair sells the lots. The board chair's husband holds the bench. The vice chairman draws a paycheck from the college the district feeds. The procurement director governs the town the district serves. The sheriff's wife prosecutes under the board chair's son. If everyone recused from every conflict, the room would be empty. The meeting would have no quorum. The government would stop. That is why no one recuses.", "seats": "<div class=\"seats\"><h3>Seats at the table<\/h3>\n<ul>\n<li><b>Left chair<\/b><span>SCHOOL BOARD — DISTRICT 2, ELECTED NOV 3<\/span><span>SAME HOUSEHOLD AS SEAT 5<\/span><\/li>\n<li><b>Seat 1<\/b><span>COUNTY COUNCIL CHAIR — DISTRICT 8<\/span><span>PRESIDENT — SC ASSOCIATION OF COUNTIES<\/span><span>TRUSTEE — McLEOD HEALTH<\/span><span>BOARD — PEE DEE COUNCIL OF GOVERNMENTS<\/span><span>BOARD — NORTHEASTERN STRATEGIC ALLIANCE<\/span><span>OWNER, BROKER-IN-CHARGE — LEWIS REALTY<\/span><span>FEATURED AMBASSADOR — PROJECT HOMETOWN CHERAW<\/span><span>PRESIDENT, 2023 — CHERAW ROTARY CLUB<\/span><span>ELDER — FIRST PRESBYTERIAN CHURCH<\/span><span>FORMER EDUCATOR<\/span><\/li>\n<li><b>Seat 2<\/b><span>SCHOOL BOARD CHAIR<\/span><span>SC HOUSE, 1991–92<\/span><span>CHILD SUPPORT SPECIALIST — DSS, 1993–2002<\/span><span>COUNTY ECONOMIC DEVELOPMENT<\/span><span>BOARD — LYNCHES RIVER ELECTRIC CO-OP<\/span><span>SAME HOUSEHOLD AS THE RESIDENT JUDGE<\/span><\/li>\n<li><b>Seat 3<\/b><span>SCHOOL BOARD VICE CHAIRMAN<\/span><span>DEAN OF STUDENT ENGAGEMENT — NETC<\/span><\/li>\n<li><b>Seat 4<\/b><span>SCHOOL DISTRICT PROCUREMENT DIRECTOR<\/span><span>MAYOR — TOWN OF PAGELAND<\/span><\/li>\n<li><b>Seat 5<\/b><span>COUNTY COUNCIL — DISTRICT 2<\/span><span>PASTOR, 36 YEARS<\/span><span>LAW ENFORCEMENT, 25 YEARS (RETIRED)<\/span><\/li>\n<li><b>Seat 6<\/b><span>SHERIFF<\/span><span>FORMER — SLED<\/span><span>FORMER — SC ABC COMMISSION<\/span><span>FORMER CHIEF DEPUTY — DARLINGTON COUNTY<\/span><\/li>\n<li><b>Right chair<\/b><span>ASSISTANT SOLICITOR — FOURTH CIRCUIT<\/span><span>FORMER JUDGE<\/span><span>PRIVATE MEDIATOR<\/span><span>YOGA STUDIO FOUNDER<\/span><span>SAME HOUSEHOLD AS SEAT 6<\/span><\/li>\n<\/ul><\/div>\n", "rendered": "2026-11-08", "file": "panel-08.webp", "png": "panel-08.png", "portal": [0.5, 0.12], "portalObject": "the county seal"}, {"n": 9, "title": "The Surname", "act": 3, "actTitle": "The Operations", "w": 1536, "h": 1240, "caption": "Education. Prosecution. Adjudication. Family law. Real estate. Five doors. One name on every plate. The board chair served in the legislature that wrote the statutes her office benefits from. Her husband holds the bench. Her son prosecutes. Her daughter-in-law represents the guardian ad litem in the cases her son's office brings. At the end of the hallway, the elections director works from the same office the retired judge occupied. The hallway does not end. It turns the corner and continues.", "seats": null, "rendered": "2026-11-07", "file": "panel-09.webp", "png": "panel-09.png", "portal": [0.75, 0.3], "portalObject": "the window at the end of the hall"}, {"n": 10, "title": "The Handoff", "act": 3, "actTitle": "The Operations", "w": 1536, "h": 1201, "caption": "Everything changed. The sheriff changed. The results changed. The name on the door changed. The council is the same. The board chair is the same. The judge is the same. The cameras are the same. The building where a man died of thirst has a new sign and fifty million dollars. The system does not need a particular sheriff. It needs a sheriff. Any sheriff. The handshake is the transition. The transition is the proof.", "seats": null, "rendered": "2026-11-07", "file": "panel-10.webp", "png": "panel-10.png", "portal": [0.46, 0.25], "portalObject": "the Sheriff's Office emblem"}, {"n": 11, "title": "The Hallway", "act": 3, "actTitle": "The Operations", "w": 1536, "h": 1236, "caption": "Five complaints filed. Five offices. Zero investigations. The Inspector General closed the file for failure to waive confidentiality — on a complaint about a public agency. The Office of Disciplinary Counsel dismissed at screening. The Attorney General cited the same statute the Inspector General cited. SLED takes complaints against SLED employees only. The Governor signed the camera money and went silent. Every door opens into the next room. Every room leads back to the hallway. The hallway is the oversight.", "seats": null, "rendered": "2026-11-07", "file": "panel-11.webp", "png": "panel-11.png", "portal": [0.82, 0.4], "portalObject": "the doorway the man walks through"}, {"n": 12, "title": "The Application", "act": 3, "actTitle": "The Operations", "w": 1536, "h": 1312, "caption": "Small Town. Big Life. The application is still open. The brochure does not mention the fifteen million the Treasurer cannot find. The brochure does not mention the man who died of thirst in a cell the voters just funded to rebuild. The brochure does not mention that the board chair's husband holds the bench, or that the council chair lists the lots, or that seven of eleven races had no opponent. The brochure mentions the golf course. The brochure mentions the park. The fine print says your information may be disclosed under the same open records law the agencies in this strip refused to comply with. Welcome to Cheraw. The smartest man in Chesterfield County has not yet arrived.", "seats": null, "rendered": "2026-11-07", "file": "panel-12.webp", "png": "panel-12.png", "portal": [0.3, 0.28], "portalObject": "the application on the screen"}]}</script>
+<script>
+(function(){
+"use strict";
+var D=JSON.parse(document.getElementById("data").textContent);
+var P=D.panels, N=P.length, BASE=D.base, PAGES=D.pages;
+var stage=document.getElementById("stage"), body=document.body;
+var reduce=window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+var pad2=function(n){return (n<10?"0":"")+n};
+var esc=function(s){return String(s).replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;"}[c]})};
+
+/* ---- build panel slides ---- */
+var endSlide=document.getElementById("sEnd");
+var slides=[document.getElementById("s0")];
+P.forEach(function(p,i){
+  var s=document.createElement("section");
+  s.className="slide panel"; s.id="s"+(i+1); s.setAttribute("aria-label","Panel "+p.n+" of "+N+": "+p.title);
+  s.innerHTML='<div class="fit"><img alt="Panel '+pad2(p.n)+': '+esc(p.title)+'" width="'+p.w+'" height="'+p.h+'" decoding="async" draggable="false"></div>'+
+    '<p class="capm">'+esc(p.caption)+'<small>Panel '+p.n+' of '+N+' · '+esc(p.title)+'</small></p>'+
+    '<p class="vh">'+esc(p.caption)+'</p>';
+  stage.insertBefore(s,endSlide); slides.push(s);
+});
+slides.push(endSlide);
+var LAST=slides.length-1;
+var stamp=document.createElement("div"); stamp.className="stamp"; stamp.setAttribute("aria-hidden","true"); stage.appendChild(stamp);
+document.querySelector("#portal0 img").src=BASE+P[0].file;
+
+var loaded={};
+function imgOf(i){return (i>=1&&i<=N)?slides[i].querySelector("img"):null}
+function load(i){
+  var im=imgOf(i); if(!im) return Promise.resolve();
+  if(!loaded[i]){ im.src=BASE+P[i-1].file; loaded[i]=(im.decode?im.decode():Promise.resolve()).catch(function(){}); }
+  return loaded[i];
+}
+function preload(i){[i,i+1,i-1,i+2].forEach(function(k){if(k>=1&&k<=N)load(k)})}
+
+/* ---- layout ---- */
+var W,H;
+function layout(){
+  W=stage.clientWidth; H=stage.clientHeight;
+  var portrait=W<760 && H>W*1.15;
+  body.classList.toggle("portrait",portrait);
+  var cs=getComputedStyle(document.documentElement);
+  var top=parseFloat(cs.getPropertyValue("--hud-top")), bot=parseFloat(cs.getPropertyValue("--hud-bot")), side=parseFloat(cs.getPropertyValue("--side"));
+  P.forEach(function(p,i){
+    var fit=slides[i+1].firstChild, aw=W-2*side, ah=H-top-bot-(portrait?8:16), r=p.w/p.h, w;
+    if(portrait){ w=aw; }
+    else { w=Math.min(aw,ah*r); }
+    fit.style.width=Math.floor(w)+"px";
+  });
+}
+
+/* geometry: point in stage px of a portal on slide i (untransformed layout) */
+function portalPoint(i){
+  if(i===0){ var r=document.getElementById("portal0").getBoundingClientRect(); return {x:r.left+r.width/2,y:r.top+r.height/2,w:r.width}; }
+  var im=imgOf(i), r2=rectOf(im), q=P[i-1].portal;
+  return {x:r2.left+q[0]*r2.width,y:r2.top+q[1]*r2.height};
+}
+function rectOf(el){ // layout rect ignoring transforms on ancestors
+  var x=0,y=0,e=el; while(e&&e!==stage){x+=e.offsetLeft;y+=e.offsetTop;e=e.offsetParent;}
+  return {left:x,top:y,width:el.offsetWidth,height:el.offsetHeight};
+}
+function innerScale(outer,inner){
+  // how much smaller the next slide sits inside the portal
+  if(outer===0){ var fit=slides[1].firstChild; return Math.max(1.6,fit.offsetWidth/document.getElementById("portal0").offsetWidth); }
+  return W<760?5.5:7;
+}
+
+/* ---- transitions ---- */
+var cur=0, busy=null, stampT;
+function setT(el,a,tx,ty,o){ el.style.transform="matrix("+a+",0,0,"+a+","+tx+","+ty+")"; el.style.opacity=o; }
+function clearT(el){ el.style.transform=""; el.style.opacity=""; el.style.filter=""; var f=el.querySelector(".fit"); if(f) f.style.boxShadow=""; }
+function ease(t){return t<.5?4*t*t*t:1-Math.pow(-2*t+2,3)/2}
+function clamp(v,a,b){return v<a?a:v>b?b:v}
+
+function zoom(outerI,innerI,forward,done){
+  var O=slides[outerI], I=slides[innerI];
+  O.classList.add("moving"); I.classList.add("moving");
+  clearT(O); clearT(I);
+  var p=portalPoint(outerI), S=innerScale(outerI,innerI), c={x:W/2,y:H/2};
+  var a=c; if(innerI>=1&&innerI<=N){ var fr=rectOf(I.querySelector(".fit")); a={x:fr.left+fr.width/2,y:fr.top+fr.height/2}; }
+  var q={x:p.x-(a.x-c.x)/S,y:p.y-(a.y-c.y)/S}; // outer point that becomes screen centre
+  var fit=I.querySelector(".fit"), dur=forward?1500:1250, t0=null, raf;
+  O.style.zIndex=1; I.style.zIndex=2;
+  function frame(now){
+    if(t0===null)t0=now;
+    var u=clamp((now-t0)/dur,0,1), t=forward?u:1-u, e=ease(t);
+    var z=Math.pow(S,e), f=e;
+    var Lx=q.x-(q.x-c.x)*(1-f)/z, Ly=q.y-(q.y-c.y)*(1-f)/z;
+    // outer camera
+    setT(O,z,c.x-z*Lx,c.y-z*Ly,1-clamp((e-.55)/.4,0,1));
+    // inner, nested at the portal
+    var k=z/S;
+    setT(I,k,c.x+z*(p.x-Lx)-k*a.x,c.y+z*(p.y-Ly)-k*a.y,clamp(e/.14,0,1));
+    if(fit) fit.style.boxShadow="0 0 0 "+(2/k).toFixed(1)+"px rgba(220,179,63,"+(0.7*(1-e)).toFixed(3)+"), 0 18px 60px rgba(0,0,0,.55)";
+    if(u<1){ raf=requestAnimationFrame(frame); }
+    else finish();
+  }
+  function finish(){
+    cancelAnimationFrame(raf);
+    O.classList.remove("moving"); I.classList.remove("moving");
+    clearT(O); clearT(I); O.style.zIndex=I.style.zIndex="";
+    busy=null; done();
+  }
+  busy={finish:finish};
+  raf=requestAnimationFrame(frame);
+}
+function dissolve(fromI,toI,done){
+  var A=slides[fromI], B=slides[toI], t0=null, raf, dur=reduce?260:520;
+  A.classList.add("moving"); B.classList.add("moving"); clearT(A); clearT(B);
+  A.style.zIndex=1; B.style.zIndex=2;
+  function frame(now){
+    if(t0===null)t0=now; var u=clamp((now-t0)/dur,0,1), e=ease(u);
+    if(reduce){ A.style.opacity=1-e; B.style.opacity=e; }
+    else{
+      var a=1+.06*e, b=.94+.06*e;
+      setT(A,a,W/2*(1-a),H/2*(1-a),1-e); setT(B,b,W/2*(1-b),H/2*(1-b),e);
+    }
+    if(u<1) raf=requestAnimationFrame(frame); else finish();
+  }
+  function finish(){ cancelAnimationFrame(raf); A.classList.remove("moving"); B.classList.remove("moving"); clearT(A); clearT(B); A.style.zIndex=B.style.zIndex=""; busy=null; done(); }
+  busy={finish:finish}; raf=requestAnimationFrame(frame);
+}
+
+var shown=0, pending=0;
+function go(to,mode){
+  to=clamp(to,0,LAST); if(to===cur) return;
+  if(busy) busy.finish();
+  cur=to; var tok=++pending, started=false;
+  clearTimeout(stampT); stamp.classList.remove("show");
+  updateHud(); preload(to);
+  var t=setTimeout(start,700);
+  load(to).then(function(){clearTimeout(t);start();});
+  function start(){
+    if(started||tok!==pending) return; started=true;
+    if(busy) busy.finish();
+    var from=shown; if(from===to) return;
+    slides[from].classList.remove("on");
+    var after=function(){ shown=to; slides[to].classList.add("on"); arrived(to,from); };
+    if(reduce||mode==="jump"||Math.abs(to-from)!==1) dissolve(from,to,after);
+    else if(to>from) zoom(from,to,true,after);
+    else zoom(to,from,false,after);
+  }
+}
+function next(){ go(cur+1) } function prev(){ go(cur-1) }
+
+/* ---- HUD ---- */
+var track=document.getElementById("track"), countEl=document.getElementById("count"), ptitle=document.getElementById("ptitle"), whereAct=document.getElementById("whereAct");
+var segs=[];
+P.forEach(function(p,i){
+  if(i>0 && P[i-1].act!==p.act){ var g=document.createElement("span"); g.className="gap"; track.appendChild(g); }
+  var b=document.createElement("button"); b.innerHTML="<i></i>"; b.title="Panel "+p.n+": "+p.title+" — Act "+p.act;
+  b.setAttribute("aria-label","Go to panel "+p.n+": "+p.title);
+  b.onclick=function(){ go(i+1,"jump") }; track.appendChild(b); segs.push(b);
+});
+function updateHud(){
+  segs.forEach(function(b,i){ b.classList.toggle("done",i+1<cur); b.classList.toggle("cur",i+1===cur); if(i+1!==cur) b.firstChild.style.removeProperty("--fill"); });
+  if(cur>=1&&cur<=N){
+    var p=P[cur-1];
+    countEl.innerHTML=pad2(p.n)+" <small>/ "+N+"</small>";
+    ptitle.textContent=p.title;
+    whereAct.textContent="Act "+p.act+" · "+p.actTitle;
+  } else {
+    countEl.innerHTML=cur===0?"<small>Title</small>":"<small>End</small>";
+    ptitle.textContent=""; whereAct.textContent="Chapter 1 · The Application";
+  }
+  document.getElementById("aPrev").disabled=cur===0;
+  document.getElementById("aNext").disabled=cur===LAST;
+  var h=cur>=1&&cur<=N?"#"+pad2(cur):cur===LAST?"#end":"";
+  if(location.hash!==h) history.replaceState(null,"",h||location.pathname+location.search);
+  renderInfo();
+}
+function arrived(to,from){
+  var live=document.getElementById("live");
+  if(to>=1&&to<=N){
+    var p=P[to-1];
+    live.textContent="Panel "+p.n+" of "+N+": "+p.title+". "+p.caption;
+    var first=to===1||P[to-2].act!==p.act;
+    if(first && to>from){
+      stamp.innerHTML="<span>Act "+p.act+"</span><b>"+esc(p.actTitle)+"</b>";
+      var fr=rectOf(slides[to].querySelector(".fit")); stamp.style.top=(fr.top+fr.height/2)+"px";
+      clearTimeout(stampT); stamp.classList.add("show");
+      stampT=setTimeout(function(){stamp.classList.remove("show")},2000);
+    } else stamp.classList.remove("show");
+  } else { live.textContent=to===0?"Title":"End of chapter"; stamp.classList.remove("show"); }
+  if(play) schedule();
+}
+
+/* ---- panel notes ---- */
+var info=document.getElementById("info"), infoIn=document.getElementById("infoIn");
+function renderInfo(){
+  if(cur>=1&&cur<=N){
+    var p=P[cur-1];
+    infoIn.innerHTML='<span class="eyebrow">Act '+p.act+' · '+esc(p.actTitle)+' · Panel '+pad2(p.n)+' of '+N+'</span>'+
+      '<h2>'+esc(p.title)+'</h2><p class="cap">'+esc(p.caption)+'</p>'+(p.seats||"")+
+      '<div class="links"><a class="btn" href="'+BASE+p.png+'" download>Download this panel (PNG)</a><a class="btn ghost" href="'+PAGES+'panel-'+pad2(p.n)+'.html">Panel page</a></div>'+
+      '<div class="meta"><span>Series id: <b>ICC · S02 · '+pad2(p.n)+'</b></span>'+(p.rendered?'<span>Rendered: '+p.rendered+'</span>':'')+'</div>'+
+      '<p class="attr" style="margin:0;text-align:left">'+D.attribution+'</p>';
+  } else {
+    infoIn.innerHTML='<span class="eyebrow">Chapter 1 · 12 panels</span><h2>The Application</h2><p class="cap">Project Hometown Cheraw, in twelve panels.</p>'+
+      '<div class="links"><a class="btn" href="'+D.strip+'" download>Download the full strip (PNG, 11 MB)</a></div><p class="attr" style="margin:0;text-align:left">'+D.attribution+'</p>';
+  }
+}
+function openInfo(v){ v=v===undefined?!info.classList.contains("open"):v; info.classList.toggle("open",v); info.setAttribute("aria-hidden",!v); if(v){ stopPlay(); info.querySelector(".close").focus(); } }
+
+/* ---- overview grid ---- */
+var grid=document.getElementById("grid"), gridIn=document.getElementById("gridIn");
+(function(){
+  var html='<div><span class="eyebrow">Idiocratic Chesterfield County · Chapter 1</span><h2 style="margin:4px 0 0;font:700 2rem var(--serif);color:var(--gold)">The Application</h2></div>', act=0;
+  P.forEach(function(p,i){
+    if(p.act!==act){ if(act) html+="</div></section>"; act=p.act; html+='<section class="grid-act"><span class="eyebrow">Act '+act+'</span><h2>'+esc(p.actTitle)+'</h2><div class="tiles">'; }
+    html+='<button class="tile" data-i="'+(i+1)+'"><img alt="" loading="lazy" data-src="'+BASE+p.file+'"><span><b>'+pad2(p.n)+'</b>'+esc(p.title)+'</span></button>';
+  });
+  html+='</div></section><div class="grid-foot"><a href="'+D.strip+'" download>Download the full strip (PNG, 11 MB)</a><a href="'+D.chapters+'">All chapters</a><span>Each panel also has its own page, linked from its notes.</span></div>';
+  gridIn.innerHTML=html;
+  gridIn.addEventListener("click",function(e){ var t=e.target.closest(".tile"); if(t){ openGrid(false); go(+t.dataset.i,"jump"); } });
+})();
+function openGrid(v){
+  v=v===undefined?!grid.classList.contains("open"):v; grid.classList.toggle("open",v);
+  if(v){ stopPlay(); openInfo(false);
+    gridIn.querySelectorAll("img[data-src]").forEach(function(im){ im.src=im.dataset.src; im.removeAttribute("data-src"); });
+    gridIn.querySelectorAll(".tile").forEach(function(t){ t.classList.toggle("cur",+t.dataset.i===cur) });
+    var c=gridIn.querySelector(".tile.cur")||gridIn.querySelector(".tile"); c.focus({preventScroll:false});
+  }
+}
+
+/* ---- autoplay ---- */
+var play=false, playT=null, playRaf=null;
+var bPlay=document.getElementById("bPlay"), playIcon=document.getElementById("playIcon");
+function dwell(i){ if(i===0) return 3500; var w=P[i-1].caption.split(/\s+/).length; return 5000+w*300; }
+function schedule(){
+  clearTimeout(playT); cancelAnimationFrame(playRaf);
+  if(!play) return;
+  if(cur===LAST){ stopPlay(); return; }
+  var d=dwell(cur), t0=performance.now(), seg=segs[cur-1];
+  (function tick(now){ if(!play) return; if(seg) seg.firstChild.style.setProperty("--fill",Math.min(100,(now-t0)/d*100)+"%"); playRaf=requestAnimationFrame(tick); })(t0);
+  playT=setTimeout(next,d);
+}
+function startPlay(){ play=true; bPlay.setAttribute("aria-pressed","true"); playIcon.setAttribute("d","M8 5v14M16 5v14"); schedule(); }
+function stopPlay(){ if(!play) return; play=false; clearTimeout(playT); cancelAnimationFrame(playRaf); bPlay.setAttribute("aria-pressed","false"); playIcon.setAttribute("d","M7 5l12 7-12 7z"); var s=segs[cur-1]; if(s) s.firstChild.style.removeProperty("--fill"); }
+bPlay.onclick=function(){ play?stopPlay():startPlay() };
+document.addEventListener("visibilitychange",function(){ if(document.hidden) stopPlay(); });
+
+/* ---- fullscreen ---- */
+function toggleFull(){
+  var d=document, el=d.documentElement;
+  if(d.fullscreenElement||d.webkitFullscreenElement){ (d.exitFullscreen||d.webkitExitFullscreen).call(d); }
+  else if(el.requestFullscreen) el.requestFullscreen().catch(function(){}); else if(el.webkitRequestFullscreen) el.webkitRequestFullscreen();
+}
+if(!(document.documentElement.requestFullscreen||document.documentElement.webkitRequestFullscreen)) document.getElementById("bFull").style.display="none";
+
+/* ---- input ---- */
+document.getElementById("bInfo").onclick=function(){ openInfo() };
+document.getElementById("bGrid").onclick=function(){ openGrid() };
+document.getElementById("bFull").onclick=toggleFull;
+document.getElementById("aPrev").onclick=function(){ stopPlay(); prev() };
+document.getElementById("aNext").onclick=function(){ stopPlay(); next() };
+document.getElementById("portal0").onclick=function(){ go(1) };
+document.querySelectorAll("[data-close]").forEach(function(b){ b.onclick=function(){ openGrid(false); openInfo(false); } });
+document.addEventListener("click",function(e){
+  var g=e.target.closest("[data-go]"); if(!g) return;
+  var k=g.dataset.go; if(k==="next") next(); else if(k==="first") go(1,"jump"); else if(k==="grid") openGrid(true);
+});
+document.addEventListener("keydown",function(e){
+  if(e.altKey||e.ctrlKey||e.metaKey) return;
+  var k=e.key;
+  if(k==="Escape"){ openGrid(false); openInfo(false); return; }
+  if(grid.classList.contains("open")){ if(k==="g"||k==="G"){openGrid(false);e.preventDefault()} return; }
+  var tag=(e.target.tagName||""); if(tag==="INPUT"||tag==="TEXTAREA") return;
+  if(k==="ArrowRight"||k==="ArrowDown"||k==="PageDown"||(k===" "&&!e.shiftKey)){ e.preventDefault(); stopPlay(); next(); }
+  else if(k==="ArrowLeft"||k==="ArrowUp"||k==="PageUp"||(k===" "&&e.shiftKey)){ e.preventDefault(); stopPlay(); prev(); }
+  else if(k==="Home"){ e.preventDefault(); go(0,"jump"); }
+  else if(k==="End"){ e.preventDefault(); go(LAST,"jump"); }
+  else if(k==="g"||k==="G") openGrid();
+  else if(k==="i"||k==="I") openInfo();
+  else if(k==="p"||k==="P") play?stopPlay():startPlay();
+  else if(k==="f"||k==="F") toggleFull();
+});
+var wheelAcc=0, wheelLock=0;
+stage.addEventListener("wheel",function(e){
+  if(e.ctrlKey) return; e.preventDefault();
+  var now=Date.now(); if(now<wheelLock) return;
+  wheelAcc+=Math.abs(e.deltaY)>Math.abs(e.deltaX)?e.deltaY:e.deltaX;
+  if(Math.abs(wheelAcc)>70){ stopPlay(); wheelAcc>0?next():prev(); wheelAcc=0; wheelLock=now+900; }
+},{passive:false});
+var tStart=null, multi=false;
+stage.addEventListener("touchstart",function(e){ if(e.touches.length>1){multi=true;tStart=null;return} multi=false; var t=e.touches[0]; tStart={x:t.clientX,y:t.clientY,t:Date.now()}; },{passive:true});
+stage.addEventListener("touchend",function(e){
+  if(multi||!tStart||e.touches.length) { if(!e.touches.length) multi=false; return; }
+  if(window.visualViewport&&window.visualViewport.scale>1.05){ tStart=null; return; } // reading zoomed in
+  var t=e.changedTouches[0], dx=t.clientX-tStart.x, dy=t.clientY-tStart.y; tStart=null;
+  if(Math.abs(dx)>45&&Math.abs(dx)>Math.abs(dy)*1.2){ stopPlay(); dx<0?next():prev(); }
+  else if(dy<-60&&Math.abs(dy)>Math.abs(dx)*1.2){ stopPlay(); next(); }
+},{passive:true});
+stage.addEventListener("click",function(e){
+  if(e.target.closest("button,a")) return;
+  if(window.visualViewport&&window.visualViewport.scale>1.05) return;
+  stopPlay(); (e.clientX<W*0.3)?prev():next();
+});
+
+/* idle HUD (mouse only) */
+var idleT;
+function wake(){ body.classList.remove("idle"); clearTimeout(idleT); idleT=setTimeout(function(){ if(cur>=1&&cur<=N&&!grid.classList.contains("open")&&!info.classList.contains("open")) body.classList.add("idle") },2600); }
+document.addEventListener("mousemove",function(e){ if(e.movementX||e.movementY) wake() });
+document.addEventListener("keydown",function(){ body.classList.remove("idle") },true);
+
+/* ---- boot ---- */
+window.addEventListener("resize",function(){ if(busy) busy.finish(); layout(); });
+window.addEventListener("hashchange",fromHash);
+function fromHash(){
+  var h=location.hash.replace("#","").replace(/^p/i,"");
+  var t=h==="end"?LAST:(/^\d+$/.test(h)?clamp(parseInt(h,10),1,N):0);
+  if(t!==cur) go(t,"jump");
+}
+layout();
+var h0=location.hash.replace("#","").replace(/^p/i,"");
+cur=h0==="end"?LAST:(/^\d+$/.test(h0)?clamp(parseInt(h0,10),1,N):0);
+shown=cur; slides[cur].classList.add("on"); load(cur||1); preload(cur||1); updateHud(); arrived(cur,cur);
+})();
+</script>
+</body></html>
