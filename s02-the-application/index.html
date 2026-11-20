@@ -79,7 +79,8 @@ body.idle{cursor:none}
   background:linear-gradient(rgba(8,9,15,.85),rgba(8,9,15,0))}
 .where{min-width:0;display:flex;align-items:baseline;gap:10px;white-space:nowrap;overflow:hidden}
 .where a{font:700 1rem var(--serif);color:var(--gold);text-decoration:none;letter-spacing:.03em}
-.where span{font:600 .72rem var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--ink2);overflow:hidden;text-overflow:ellipsis}
+.t-short{display:none}
+.where>span{font:600 .72rem var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--ink2);overflow:hidden;text-overflow:ellipsis}
 .tools{margin-left:auto;display:flex;gap:4px}
 .ic{width:40px;height:40px;display:grid;place-items:center;border:1px solid transparent;border-radius:8px;background:rgba(14,15,24,.55);cursor:pointer;color:var(--ink2)}
 .ic:hover{color:var(--gold);border-color:var(--rule2)}
@@ -141,7 +142,8 @@ body.idle{cursor:none}
   :root{--side:8px;--hud-top:52px;--hud-bot:58px}
   .arrow{display:none}
   .ptitle{display:none}
-  .where span{display:none}
+  .where>span{display:none}
+  .t-full{display:none}.t-short{display:inline}
   .fit{padding:3px}
 }
 @media (max-height:520px) and (orientation:landscape){
@@ -185,7 +187,7 @@ body.idle{cursor:none}
 </div>
 
 <header class="hud top">
-  <div class="where"><a href="../index.html">Idiocratic Chesterfield County</a><span id="whereAct">Chapter 1 · The Application</span></div>
+  <div class="where"><a href="../index.html"><span class="t-full">Idiocratic Chesterfield County</span><span class="t-short">Idiocratic CC</span></a><span id="whereAct">Chapter 1 · The Application</span></div>
   <div class="tools">
     <button class="ic" id="bPlay" aria-pressed="false" title="Autoplay (P)" aria-label="Autoplay"><svg viewBox="0 0 24 24"><path id="playIcon" d="M7 5l12 7-12 7z"/></svg></button>
     <button class="ic" id="bInfo" title="Panel notes (I)" aria-label="Panel notes"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7.5v.5"/></svg></button>
